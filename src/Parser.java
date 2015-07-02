@@ -32,11 +32,7 @@ public class Parser {
                 System.out.println(Parser.href);
                 Parser.size++;
             }
-           /* Elements elements = doc.select("div.recipe");
-            for (int i = 0; i < elements.size(); i++) {
-                Parser.dishName = elements.get(i).children().get(0).children().get(0).children().get(0).children().get(0).children().get(0).html();
-                Parser.size++;
-            }*/
+
             Elements ingridients = doc.select("div.have-not-have");
             String currentString = "";
             for (int i = 0; i < ingridients.size(); i++) {
