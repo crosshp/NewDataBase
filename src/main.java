@@ -8,6 +8,6 @@ public class main {
             parser.parse(i);
         }
         System.out.println(Parser.size);*/
-        parser.parse(1);
+        parser.parse(0);
     }
 }
