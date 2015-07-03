@@ -17,7 +17,7 @@ public class Parser {
     static int idDish;
     static int size = 0;
     static String href = null;
-
+    private String[][] mas = new String[20][2];
     public void parse(int pageNumber) {
         try {
             Document doc = Jsoup
@@ -28,25 +28,39 @@ public class Parser {
             for (int i = 0; i < elements.size(); i++) {
                 Parser.dishName = elements.get(i).children().html();
                 Parser.href = elements.get(i).children().attr("href");
-                System.out.println(Parser.dishName);
-                System.out.println(Parser.href);
-                Parser.size++;
+                mas[i][0] = Parser.dishName;
+                mas[i][1] = Parser.href;
             }
 
-            Elements ingridients = doc.select("div.have-not-have");
-            String currentString = "";
+            Elements ingridients = doc.select("div.ingridients");
+            for(int i = 0; i < ingridients.size(); i++){
+                for(int j = 0; j < ingridients.get(i).children().size(); j++){
+            System.out.println(ingridients.get(i).children().get(j).children().html());
+                }
+                System.out.println("\n new recept!!!!");
+            }
+            /*String currentString = "";
+            ArrayList arrayList = new ArrayList();
             for (int i = 0; i < ingridients.size(); i++) {
                 currentString = ingridients.get(i).children().html();
                 Parser.ingridientName = currentString.substring(33, currentString.length());
-                System.out.println(Parser.ingridientName);
-                Parser.size++;
-            }
+
+                mas[i][0] =  Parser.ingridientName;
+            }*/
 
         } catch (java.net.MalformedURLException e2) {
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e1) {
+        }
+    }
+    public void printMas(){
+        for (int i = 0; i < mas.length; i++){
+            for (int j = 0; j < mas[i].length; j++){
+                System.out.print(mas[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }

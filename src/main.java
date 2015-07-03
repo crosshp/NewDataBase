@@ -9,5 +9,6 @@ public class main {
         }
         System.out.println(Parser.size);*/
         parser.parse(0);
+        parser.printMas();
     }
 }
