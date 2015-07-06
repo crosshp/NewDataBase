@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Andrew on 26.06.2015.
  */
 @Entity
-@Table(name = "recept_30")
+@Table(name = "dish")
 public class Dish {
     @Id
     @Column(name = "id")
@@ -14,15 +14,15 @@ public class Dish {
     private long idDish;
 
     @Column(name = "name")
-    private String name;
-
-    @Column(name = "ingridients")
-    private String ingridients;
-
-    @Column(name = "steps")
-    private String recept;
+    private String name = "";
 
 
+    @Column(name = "href")
+    private String href = "";
+    public Dish(String name, String href) {
+        this.name = name;
+        this.href = href;
+    }
 
     public String getName() {
         return name;
@@ -30,14 +30,6 @@ public class Dish {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getIngridients() {
-        return ingridients;
-    }
-
-    public void setIngridients(String ingridients) {
-        this.ingridients = ingridients;
     }
 
     public long getIdDish() {
@@ -48,13 +40,13 @@ public class Dish {
         this.idDish = idDish;
     }
 
-    public String getRecept() {
-        return recept;
+
+    public String getHref() {
+        return href;
     }
 
-    public void setRecept(String recept) {
-        this.recept = recept;
+    public void setHref(String href) {
+        this.href = href;
     }
-
 
 }

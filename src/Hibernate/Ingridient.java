@@ -7,8 +7,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ingridient_test")
-public class Ingridient {
-public Ingridient(String name){
+public  class Ingridient {
+public  Ingridient(String name){
     this.name = name;
 }
     @Id
